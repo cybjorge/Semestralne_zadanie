@@ -46,26 +46,19 @@ class home : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val bttn = view?.findViewById<Button>(R.id.submit_button)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val bttn = view.findViewById<Button>(R.id.submit_button)
         bttn?.setOnClickListener{
-            val filled_name_et: EditText ?= view?.findViewById(R.id.name)
-            val filled_pub_et: EditText ?= view?.findViewById(R.id.pub_name)
-            val filled_lat_et: EditText ?= view?.findViewById(R.id.latitude)
-            val filled_alt_et: EditText ?= view?.findViewById(R.id.altitude)
+            val filled_name_et= view.findViewById<EditText>(R.id.name).text.toString()
+            val filled_pub_et= view.findViewById<EditText>(R.id.pub_name).text.toString()
+            val filled_lat_et= view.findViewById<EditText>(R.id.latitude).text.toString()
+            val filled_alt_et= view.findViewById<EditText>(R.id.altitude).text.toString()
 
-            val name_string=filled_name_et.toString()
-            val pub_string=filled_pub_et.toString()
-            val lat_string=filled_lat_et.toString()
-            val alt_string=filled_alt_et.toString()
 
-            val action=FirstFragmentDirections.actionFirstFragmentToSecondFragment(name_string,pub_string,lat_string,alt_string)
-            view?.findNavController().navigate(action)
-
+            val action=homeDirections.actionHome2ToAnimation(filled_name_et,filled_pub_et,filled_lat_et,filled_alt_et)
+            view.findNavController().navigate(action)
         }
-       // findNavController().navigate(R.id.action_home2_to_animation)
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return view
     }
 
     companion object {

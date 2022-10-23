@@ -1,10 +1,13 @@
 package com.example.semestralne_zadanie
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,33 +26,35 @@ class animation : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val animation_view=view?.findViewById<LottieAnimationView>(R.id.animation_view)
-        animation_view?.playAnimation()
     }
 
+
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_animation, container, false)
+        val view = inflater.inflate(R.layout.fragment_animation, container, false)
+
+        val animation_view=view.findViewById<LottieAnimationView>(R.id.animation_view)
+        animation_view.playAnimation()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment animation.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            animation().apply {
 
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val args: animationArgs by navArgs()
+
+        val name=args.submittedName
+        val pub=args.submittedPub
+        val lat=args.subLat
+        val alt=args.subAlt
+
+        view.findViewById<TextView>(R.id.submitted_name).text=name
+        view.findViewById<TextView>(R.id.submitted_pub).text=pub
     }
+
 }

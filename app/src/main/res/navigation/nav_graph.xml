@@ -14,7 +14,20 @@
         android:id="@+id/animation"
         android:name="com.example.semestralne_zadanie.animation"
         android:label="fragment_animation"
-        tools:layout="@layout/fragment_animation" />
+        tools:layout="@layout/fragment_animation" >
+        <argument
+            android:name="submitted_name"
+            app:argType="string" />
+        <argument
+            android:name="submitted_pub"
+            app:argType="string" />
+        <argument
+            android:name="sub_lat"
+            app:argType="string" />
+        <argument
+            android:name="sub_alt"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/home2"
         android:name="com.example.semestralne_zadanie.home"
@@ -22,6 +35,23 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_home2_to_animation"
-            app:destination="@id/animation" />
+            app:destination="@id/animation" >
+            <argument
+                android:name="name_argument"
+                app:argType="string"
+                android:defaultValue=""/>
+            <argument
+                android:name="pub_name_argument"
+                app:argType="string"
+                android:defaultValue=""/>
+            <argument
+                android:name="lat_argument"
+                app:argType="string"
+                android:defaultValue=""/>
+            <argument
+                android:name="alt_argument"
+                app:argType="string"
+                android:defaultValue=""/>
+        </action>
     </fragment>
 </navigation>
