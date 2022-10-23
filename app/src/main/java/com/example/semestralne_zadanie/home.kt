@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.annotation.NonNull
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -49,9 +50,13 @@ class home : Fragment(){
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val bttn = view.findViewById<Button>(R.id.submit_button)
         bttn?.setOnClickListener{
+            @NonNull
             val filled_name_et= view.findViewById<EditText>(R.id.name).text.toString()
+            @NonNull
             val filled_pub_et= view.findViewById<EditText>(R.id.pub_name).text.toString()
+            @NonNull
             val filled_lat_et= view.findViewById<EditText>(R.id.latitude).text.toString()
+            @NonNull
             val filled_alt_et= view.findViewById<EditText>(R.id.altitude).text.toString()
 
 

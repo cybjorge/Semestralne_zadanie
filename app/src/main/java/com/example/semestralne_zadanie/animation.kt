@@ -1,11 +1,14 @@
 package com.example.semestralne_zadanie
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.airbnb.lottie.LottieAnimationView
@@ -55,6 +58,12 @@ class animation : Fragment() {
 
         view.findViewById<TextView>(R.id.submitted_name).text=name
         view.findViewById<TextView>(R.id.submitted_pub).text=pub
+
+        view.findViewById<Button>(R.id.map_redirect).setOnClickListener{
+            val uri= "https://maps.google.com/?q=".plus(lat.toDouble()).plus(",").plus(alt.toDouble())
+            val intent= Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            requireContext().startActivity(intent)
+        }
     }
 
 }
