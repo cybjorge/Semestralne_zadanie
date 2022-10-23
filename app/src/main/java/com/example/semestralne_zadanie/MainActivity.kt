@@ -1,25 +1,23 @@
 package com.example.semestralne_zadanie
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val navHostFragment =supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        setContentView(R.layout.activity_main)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-    /*
-        setContentView(R.layout.activity_main)
-
-        val an=findViewById<com.airbnb.lottie.LottieAnimationView>(R.id.animation_view)
-
-        an.setOnClickListener {
-            an.playAnimation()
-        }
-        */
+        navController.navigate(R.id.home2)
 
     }
+
 }
