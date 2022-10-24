@@ -54,4 +54,8 @@
                 android:defaultValue=""/>
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/listOfPubs"
+        android:name="com.example.semestralne_zadanie.ListOfPubs"
+        android:label="ListOfPubs" />
 </navigation>
