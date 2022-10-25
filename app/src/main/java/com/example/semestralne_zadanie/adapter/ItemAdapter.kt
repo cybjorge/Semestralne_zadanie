@@ -1,12 +1,15 @@
 package com.example.semestralne_zadanie.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.semestralne_zadanie.ListOfPubs
+import com.example.semestralne_zadanie.ListOfPubsDirections
 import com.example.semestralne_zadanie.R
 import com.example.semestralne_zadanie.model.Pub
 
@@ -17,17 +20,35 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
         val textView: TextView = view.findViewById(R.id.item_title)
     }
 
+    fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int, type: Int) -> Unit): T {
+        itemView.setOnClickListener {
+            event.invoke(getAdapterPosition(), getItemViewType())
+        }
+        return this
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item_pub, parent, false)
-        return ItemViewHolder(adapterLayout)
+
+        return ItemViewHolder(adapterLayout).listen { pos, type ->
+            val detail = dataset[pos]
+            val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(detailPName = detail.tags.get("name")!!, iId = detail.id.toString())
+
+
+            adapterLayout.findNavController().navigate(action)
+
+        }
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = context.resources.getString(item.id)
+
+        val pub_name=item.tags.get("name")
+        holder.textView.text = pub_name
+
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return dataset.size
     }
 }

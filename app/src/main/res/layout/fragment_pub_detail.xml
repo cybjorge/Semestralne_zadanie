@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pubDetail">
+
+    <TextView
+        android:id="@+id/detail_pub_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/detail_pub_hours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detail_pub_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/detail_pub_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_name" />
+
+    <TextView
+        android:id="@+id/detail_pub_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/detail_pub_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_hours" />
+
+    <TextView
+        android:id="@+id/detail_pub_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/detail_show_on_map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_mail" />
+
+    <Button
+
+        android:id="@+id/detail_show_on_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="130dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_phone" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="107dp"
+        app:icon="@android:drawable/btn_dialog"
+        app:iconPadding="-3dp"
+        app:iconTint="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_show_on_map"
+        app:layout_constraintVertical_bias="0.25" />
+</androidx.constraintlayout.widget.ConstraintLayout>
