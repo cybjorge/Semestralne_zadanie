@@ -1,5 +1,6 @@
 package com.example.semestralne_zadanie
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,6 +44,7 @@ class home : Fragment(){
 
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,28 +65,10 @@ class home : Fragment(){
             val action=homeDirections.actionHome2ToAnimation(filled_name_et,filled_pub_et,filled_lat_et,filled_alt_et)
             view.findNavController().navigate(action)
         }
+        view.findViewById<Button>(R.id.list_of_all_pubs).setOnClickListener {
+            view.findNavController().navigate(R.id.listOfPubs)
+        }
         return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment home.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(name: String, pub_name: String, lat: String, alt: String) =
-            home().apply {
-                arguments = Bundle().apply {
-                    putString(arg_meno, name)
-                    putString(arg_pub, pub_name)
-                    putString(arg_lat, lat)
-                    putString(arg_alt, alt)
-                }
-            }
-    }
 }
