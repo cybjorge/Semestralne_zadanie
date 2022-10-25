@@ -41,6 +41,12 @@ class ListOfPubs : Fragment() {
         recyclerView?.adapter=ItemAdapter(this, MySingleton.pubs)
         recyclerView?.setHasFixedSize(true)
 
+        view.findViewById<Button>(R.id.sort).setOnClickListener {
+            var list = MySingleton.pubs.sortedByDescending { it.tags.get("name") }
+            list=list.reversed()
+            MySingleton.pubs= list as MutableList<Pub>
+            view.findNavController().navigate(R.id.listOfPubs)
+        }
         return view
     }
 

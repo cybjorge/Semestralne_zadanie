@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         val list_of_pubs = jsonFile?.let { PubDatasource().loadPubsFromJson(it) }!!
 
         MySingleton.pubs= list_of_pubs
-        System.out.println("kokot")
 
         setContentView(R.layout.activity_main)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment

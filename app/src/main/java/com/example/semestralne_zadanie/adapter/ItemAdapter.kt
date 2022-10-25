@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.semestralne_zadanie.ListOfPubs
 import com.example.semestralne_zadanie.ListOfPubsDirections
 import com.example.semestralne_zadanie.R
-import com.example.semestralne_zadanie.global_pub
 import com.example.semestralne_zadanie.model.Pub
 
 class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub>):
