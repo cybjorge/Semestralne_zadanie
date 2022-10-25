@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.semestralne_zadanie.ListOfPubs
 import com.example.semestralne_zadanie.ListOfPubsDirections
 import com.example.semestralne_zadanie.R
+import com.example.semestralne_zadanie.global_pub
 import com.example.semestralne_zadanie.model.Pub
 
 class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub>):
@@ -29,10 +30,10 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item_pub, parent, false)
-
         return ItemViewHolder(adapterLayout).listen { pos, type ->
-            val detail = dataset[pos]
-            val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(detailPName = detail.tags.get("name")!!, iId = detail.id.toString())
+            val detail = global_pub[pos]
+            val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(detailPName = detail.tags.get("name")!!, iId = pos.toString())
+
 
 
             adapterLayout.findNavController().navigate(action)
@@ -41,7 +42,7 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
+        val item = global_pub[position]
 
         val pub_name=item.tags.get("name")
         holder.textView.text = pub_name

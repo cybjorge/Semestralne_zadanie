@@ -1,5 +1,6 @@
 package com.example.semestralne_zadanie
 
+import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.semestralne_zadanie.adapter.ItemAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +45,14 @@ class pubDetail : Fragment() {
         val detail_p_name=args.detailPName
         val i_id = args.iId
         view.findViewById<TextView>(R.id.detail_pub_name).text=detail_p_name
+
+        view.findViewById<Button>(R.id.detail_show_on_map).setOnClickListener {
+
+            global_pub.removeAt(i_id.toInt())
+            view.findNavController().navigate(R.id.listOfPubs)
+        }
+
+
 
     }
 }

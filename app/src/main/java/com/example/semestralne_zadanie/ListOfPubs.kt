@@ -8,23 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.example.semestralne_zadanie.adapter.ItemAdapter
 import com.example.semestralne_zadanie.data.PubDatasource
 import com.example.semestralne_zadanie.model.Pub
+import java.util.logging.Logger.global
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ListOfPubs.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ListOfPubs : Fragment() {
 
 
@@ -41,12 +33,12 @@ class ListOfPubs : Fragment() {
 
         val loader = PubDatasource()
         val jsonFile=this.context?.let { loader.getJsonDataFromAsset(it,"pubs.json") }
+        global_pub = jsonFile?.let { PubDatasource().loadPubsFromJson(it) }!!
 
-        var allPubs : MutableList<Pub> = ArrayList()
-        allPubs = jsonFile?.let { PubDatasource().loadPubsFromJson(it) }!!
 
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView?.adapter=ItemAdapter(this, allPubs)
+
+        recyclerView?.adapter=ItemAdapter(this, global_pub)
         recyclerView?.setHasFixedSize(true)
 
         return view
