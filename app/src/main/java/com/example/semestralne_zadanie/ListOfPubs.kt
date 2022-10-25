@@ -30,15 +30,15 @@ class ListOfPubs : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_list_of_pubs, container, false)
-
-        val loader = PubDatasource()
-        val jsonFile=this.context?.let { loader.getJsonDataFromAsset(it,"pubs.json") }
-        global_pub = jsonFile?.let { PubDatasource().loadPubsFromJson(it) }!!
-
+        /*
+                val loader = PubDatasource()
+                val jsonFile=this.context?.let { loader.getJsonDataFromAsset(it,"pubs.json") }
+                global_pub = jsonFile?.let { PubDatasource().loadPubsFromJson(it) }!!
+        */
 
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recycler_view)
 
-        recyclerView?.adapter=ItemAdapter(this, global_pub)
+        recyclerView?.adapter=ItemAdapter(this, MySingleton.pubs)
         recyclerView?.setHasFixedSize(true)
 
         return view

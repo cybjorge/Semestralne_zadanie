@@ -31,7 +31,7 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item_pub, parent, false)
         return ItemViewHolder(adapterLayout).listen { pos, type ->
-            val detail = global_pub[pos]
+            val detail = dataset[pos]
             val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(detailPName = detail.tags.get("name")!!, iId = pos.toString())
 
 
@@ -42,7 +42,7 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = global_pub[position]
+        val item = dataset[position]
 
         val pub_name=item.tags.get("name")
         holder.textView.text = pub_name

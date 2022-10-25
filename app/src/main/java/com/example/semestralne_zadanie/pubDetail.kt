@@ -48,7 +48,7 @@ class pubDetail : Fragment() {
 
         view.findViewById<Button>(R.id.detail_show_on_map).setOnClickListener {
 
-            global_pub.removeAt(i_id.toInt())
+            MySingleton.pubs.removeAt(i_id.toInt())
             view.findNavController().navigate(R.id.listOfPubs)
         }
 
