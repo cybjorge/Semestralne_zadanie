@@ -27,67 +27,42 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="130dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/detail_pub_mail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_pub_name" />
-
-    <TextView
-        android:id="@+id/detail_pub_mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="130dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/detail_pub_phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_pub_hours" />
-
-    <TextView
-        android:id="@+id/detail_pub_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="130dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/detail_show_on_map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_pub_mail" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_name" />
 
     <Button
 
         android:id="@+id/detail_show_on_map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="130dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="130dp"
-        android:text="Button"
+        android:text="Ukazat na mape"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_pub_phone" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_pub_hours" />
 
     <Button
         android:id="@+id/delete"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Button"
+        android:layout_width="142dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="130dp"
 
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="107dp"
-        app:icon="@android:drawable/btn_dialog"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="130dp"
+        android:text="Vymazat"
         app:iconPadding="-3dp"
         app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_show_on_map"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.206" />
 </androidx.constraintlayout.widget.ConstraintLayout>

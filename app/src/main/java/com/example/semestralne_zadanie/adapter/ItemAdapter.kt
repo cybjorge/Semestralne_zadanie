@@ -31,7 +31,14 @@ class ItemAdapter(private val context: ListOfPubs, private val dataset: List<Pub
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item_pub, parent, false)
         return ItemViewHolder(adapterLayout).listen { pos, type ->
             val detail = dataset[pos]
-            val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(detailPName = detail.tags.get("name")!!, iId = pos.toString())
+            var p_name=detail.tags.get("name")
+            var web=detail.tags.get("website")
+            var time=detail.tags.get("opening_hours")
+            if (p_name == null){p_name="Tento podnik nema meno"}
+            if (web == null){web="Neni web"}
+            if (time == null){time="Tento podnik nema otvaracie hodiny"}
+            val action = ListOfPubsDirections.actionListOfPubsToPubDetail2(p_name,
+                iId = pos.toString(),time, web)
 
 
 

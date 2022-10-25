@@ -43,11 +43,27 @@ class pubDetail : Fragment() {
         val args: pubDetailArgs by navArgs()
 
         val detail_p_name=args.detailPName
+        val detail_p_hours=args.detailPTime
+        val detail_p_website=args.detailPContact
+
         val i_id = args.iId
         view.findViewById<TextView>(R.id.detail_pub_name).text=detail_p_name
+        view.findViewById<TextView>(R.id.detail_pub_hours).text=detail_p_hours
+        if (detail_p_website!="Neni web"){
+            view.findViewById<Button>(R.id.detail_show_on_map).text=detail_p_website
+            view.findViewById<Button>(R.id.detail_show_on_map).setOnClickListener {
+                val uri= detail_p_website
+                val intent= Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                requireContext().startActivity(intent)
+            }
+        }
+        else{
+            view.findViewById<Button>(R.id.detail_show_on_map).text=detail_p_website
+        }
 
-        view.findViewById<Button>(R.id.detail_show_on_map).setOnClickListener {
 
+
+        view.findViewById<Button>(R.id.delete).setOnClickListener {
             MySingleton.pubs.removeAt(i_id.toInt())
             view.findNavController().navigate(R.id.listOfPubs)
         }

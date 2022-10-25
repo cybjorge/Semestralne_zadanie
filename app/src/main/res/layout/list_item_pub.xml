@@ -7,5 +7,9 @@
     <TextView
         android:id="@+id/item_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:shadowRadius="@integer/material_motion_duration_medium_1"
+        />
 </LinearLayout>

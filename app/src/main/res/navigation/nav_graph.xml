@@ -67,6 +67,12 @@
             <argument
                 android:name="i_id"
                 app:argType="string" />
+            <argument
+                android:name="detail_p_time"
+                app:argType="string" />
+            <argument
+                android:name="detail_p_contact"
+                app:argType="string" />
         </action>
     </fragment>
     <fragment
@@ -79,6 +85,10 @@
             app:argType="string" />
         <argument
             android:name="i_id"
+            app:argType="string" />
+        <argument android:name="detail_p_time"
+            app:argType="string" />
+        <argument android:name="detail_p_contact"
             app:argType="string" />
     </fragment>
 </navigation>
